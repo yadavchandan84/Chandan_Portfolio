@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-ink-950 text-slate-200 antialiased font-sans;
+    background-image:
+      radial-gradient(60rem 60rem at 80% -10%, rgba(45, 212, 191, 0.10), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 20%, rgba(13, 148, 136, 0.10), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  html:not(.dark) body {
+    @apply bg-slate-50 text-slate-800;
+    background-image:
+      radial-gradient(60rem 60rem at 80% -10%, rgba(45, 212, 191, 0.14), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 20%, rgba(13, 148, 136, 0.10), transparent 55%);
+  }
+
+  ::selection {
+    @apply bg-accent-400/30 text-accent-100;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .section {
+    @apply py-24 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent-400/30 bg-accent-400/10
+           px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-400;
+  }
+
+  .section-title {
+    @apply mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl;
+  }
+
+  /* Glass surface that adapts to theme */
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+  html:not(.dark) .glass {
+    @apply border-slate-900/10 bg-white/70;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
+           transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-400;
+  }
+  .btn-primary {
+    @apply btn bg-accent-500 text-ink-950 shadow-glow hover:bg-accent-400 hover:shadow-glow-lg hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn border border-white/15 text-slate-200 hover:border-accent-400/60 hover:text-accent-300 hover:-translate-y-0.5;
+  }
+  html:not(.dark) .btn-ghost {
+    @apply border-slate-900/15 text-slate-700 hover:text-accent-600;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5
+           text-xs font-medium text-slate-300 transition-colors;
+  }
+  html:not(.dark) .chip {
+    @apply border-slate-900/10 bg-white/60 text-slate-600;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-300 via-accent-400 to-cyan-300 bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 212, 191, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 212, 191, 0.6);
+  background-clip: content-box;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

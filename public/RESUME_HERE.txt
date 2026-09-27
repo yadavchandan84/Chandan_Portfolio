@@ -1,0 +1,8 @@
+Place your resume PDF in this /public folder and name it:
+
+    Chandan_Resume.pdf
+
+The "Resume" button in the hero links to /Chandan_Resume.pdf.
+To use a different filename, update profile.resumeUrl in src/data/portfolio.js.
+
+You can delete this note file once your resume is added.

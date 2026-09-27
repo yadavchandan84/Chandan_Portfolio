@@ -1,0 +1,13 @@
+# Normalize line endings: keep LF in the repo, let Git handle checkout.
+* text=auto eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
